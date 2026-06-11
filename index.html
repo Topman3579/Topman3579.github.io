@@ -71,7 +71,7 @@
 
   /* ── Hero ── */
   .hero {
-    padding: clamp(80px, 14vw, 168px) 0 clamp(72px, 10vw, 128px);
+    padding-block: clamp(80px, 14vw, 168px) clamp(72px, 10vw, 128px);
   }
   .kicker {
     font-family: 'Inter', sans-serif;
@@ -225,6 +225,8 @@
   }
   @media (max-width: 560px) {
     nav { display: none; }
+    .kicker { font-size: 10px; letter-spacing: 0.22em; }
+    .kicker::before { width: 24px; flex-shrink: 0; }
   }
 </style>
 </head>
