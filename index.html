@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TOPMANIDMB — Intelligence · Systems · Craft</title>
+<meta name="description" content="TOPMANIDMB Studio — AI systems, data engineering, and decision-support craft. Built with discipline, presented with taste.">
+<meta property="og:title" content="TOPMANIDMB — Intelligence · Systems · Craft">
+<meta property="og:description" content="AI systems, data engineering, and decision-support craft.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Serif+Thai:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ivory: #FAF7F0;
+    --ivory-deep: #F3EEE2;
+    --navy: #16213A;
+    --navy-soft: #3A4663;
+    --gold: #B08A3E;
+    --gold-soft: #C8A961;
+    --hairline: rgba(22, 33, 58, 0.14);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--ivory);
+    color: var(--navy);
+    font-family: 'Noto Serif Thai', 'Playfair Display', serif;
+    font-weight: 300;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--gold-soft); color: var(--navy); }
+
+  .frame {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 clamp(24px, 6vw, 64px);
+  }
+
+  /* ── Header ── */
+  header {
+    padding: clamp(28px, 4vw, 44px) 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .wordmark {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    letter-spacing: 0.28em;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+  .wordmark .dot { color: var(--gold); }
+  nav { display: flex; gap: 32px; }
+  nav a {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--navy-soft);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  nav a:hover { color: var(--gold); }
+
+  /* ── Hero ── */
+  .hero {
+    padding: clamp(80px, 14vw, 168px) 0 clamp(72px, 10vw, 128px);
+  }
+  .kicker {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .kicker::before {
+    content: "";
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    display: inline-block;
+  }
+  h1 {
+    font-family: 'Playfair Display', 'Noto Serif Thai', serif;
+    font-size: clamp(44px, 8vw, 92px);
+    font-weight: 400;
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    max-width: 18ch;
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .hero-sub {
+    margin-top: 36px;
+    max-width: 52ch;
+    font-size: clamp(16px, 2vw, 19px);
+    color: var(--navy-soft);
+  }
+
+  /* ── Sections ── */
+  section {
+    border-top: 1px solid var(--hairline);
+    padding: clamp(64px, 9vw, 112px) 0;
+  }
+  .section-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 40px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: clamp(32px, 5vw, 56px);
+  }
+  .card h3 {
+    font-family: 'Playfair Display', 'Noto Serif Thai', serif;
+    font-size: 23px;
+    font-weight: 500;
+    margin-bottom: 14px;
+    line-height: 1.3;
+  }
+  .card .num {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--gold);
+    font-size: 15px;
+    display: block;
+    margin-bottom: 18px;
+  }
+  .card p {
+    font-size: 15.5px;
+    color: var(--navy-soft);
+  }
+
+  /* ── Principles strip ── */
+  .principles {
+    background: var(--navy);
+    color: var(--ivory);
+  }
+  .principles .section-label { color: var(--gold-soft); }
+  .principles blockquote {
+    font-family: 'Playfair Display', 'Noto Serif Thai', serif;
+    font-size: clamp(24px, 4vw, 38px);
+    font-weight: 400;
+    line-height: 1.45;
+    max-width: 26ch;
+  }
+  .principles blockquote em { color: var(--gold-soft); font-style: italic; }
+  .principles figcaption {
+    margin-top: 28px;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(250, 247, 240, 0.55);
+  }
+
+  /* ── Contact ── */
+  .contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 8px;
+  }
+  .btn {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 16px 34px;
+    border: 1px solid var(--navy);
+    color: var(--navy);
+    transition: all 0.35s ease;
+  }
+  .btn:hover { background: var(--navy); color: var(--ivory); }
+  .btn.gold {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+  .btn.gold:hover { background: var(--gold); color: var(--ivory); }
+
+  /* ── Footer ── */
+  footer {
+    border-top: 1px solid var(--hairline);
+    padding: 40px 0 56px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 16px;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--navy-soft);
+  }
+
+  /* ── Reveal animation ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+  @media (max-width: 560px) {
+    nav { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="frame">
+  <div class="header-row">
+    <div class="wordmark">TOPMANIDMB<span class="dot">.</span></div>
+    <nav>
+      <a href="#studio">Studio</a>
+      <a href="#work">Discipline</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="hero frame">
+    <div class="kicker reveal">Intelligence · Systems · Craft</div>
+    <h1 class="reveal">ระบบที่คิดมาแล้ว<br>นำเสนอด้วย<em>รสนิยม</em></h1>
+    <p class="hero-sub reveal">
+      TOPMANIDMB คือสตูดิโอวิศวกรรมข้อมูลและระบบ AI —
+      เราเชื่อว่างานวิเคราะห์ที่ดีต้องถูกต้องก่อนเร็ว
+      และความเรียบง่ายที่แท้จริงเกิดจากความเข้าใจที่ลึกพอ
+    </p>
+  </div>
+
+  <section id="studio">
+    <div class="frame">
+      <div class="section-label reveal">The Studio</div>
+      <div class="grid">
+        <div class="card reveal">
+          <span class="num">No. 01</span>
+          <h3>AI Systems</h3>
+          <p>ออกแบบและประกอบระบบ AI ใช้งานจริง — agent workflow, RAG,
+             และ automation ที่วัดผลได้ ไม่ใช่ของโชว์</p>
+        </div>
+        <div class="card reveal">
+          <span class="num">No. 02</span>
+          <h3>Data Engineering</h3>
+          <p>เปลี่ยนข้อมูลกระจัดกระจายเป็นโครงสร้างที่ค้นได้ ตรวจสอบได้
+             — pipeline, ฐานข้อมูล, และ dashboard ที่เล่าเรื่องเป็น</p>
+        </div>
+        <div class="card reveal">
+          <span class="num">No. 03</span>
+          <h3>Decision Support</h3>
+          <p>สังเคราะห์ข้อมูลซับซ้อนให้เป็นภาพเดียวที่ตัดสินใจได้
+             — briefing, intelligence view, และรายงานที่อ่านจบในหน้าเดียว</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="principles" id="work">
+    <div class="frame">
+      <div class="section-label reveal">Discipline</div>
+      <figure>
+        <blockquote class="reveal">
+          รวบรวม — เรียบเรียง — วิเคราะห์ — <em>นำเสนอ</em>
+        </blockquote>
+        <figcaption class="reveal">
+          Four steps. Never skipped. Verification first.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="frame">
+      <div class="section-label reveal">Contact</div>
+      <div class="contact-row reveal">
+        <a class="btn gold" href="https://github.com/Topman3579" rel="noopener">GitHub — Topman3579</a>
+        <a class="btn" href="https://topmanidmb.net" rel="noopener">topmanidmb.net</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="frame">
+  <span>© 2026 TOPMANIDMB Studio</span>
+  <span>Crafted in Bangkok · Served by GitHub Pages</span>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
