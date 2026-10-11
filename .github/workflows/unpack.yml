@@ -1,0 +1,29 @@
+name: unpack
+# Unpacks _bundle/site.tgz.b64 (built by /workspace/news/build_home.sh) onto main -> GitHub Pages (branch build).
+# Only touches hub paths; never deletes anything else (LICENSE, leak-guard, etc. stay as-is).
+on:
+  push:
+    branches: [main]
+    paths: ['_bundle/**', '.github/workflows/unpack.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: { group: unpack, cancel-in-progress: false }
+jobs:
+  unpack:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Unpack bundle and commit to main
+        run: |
+          set -euo pipefail
+          mkdir /tmp/out
+          base64 -d _bundle/site.tgz.b64 | tar xz -C /tmp/out
+          test -f /tmp/out/index.html
+          if grep -rIq -e 'ฉบับ ผบ.ตร.' -e 'ฉบับนายกรัฐมนตรี' /tmp/out; then echo "brief text found - refusing"; exit 1; fi
+          ALLOW="index.html 404.html favicon.svg robots.txt sitemap.xml assets studio weekly-chart"
+          for p in $ALLOW; do [ -e "/tmp/out/$p" ] && cp -a "/tmp/out/$p" . ; done
+          git add -A -- $ALLOW
+          if git diff --cached --quiet; then echo "no changes"; exit 0; fi
+          git -c user.name="hub-bot" -c user.email="hub-bot@users.noreply.github.com" commit -qm "hub: unpack ${GITHUB_SHA::7}"
+          git push -q origin HEAD:main
